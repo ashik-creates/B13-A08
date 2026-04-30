@@ -14,7 +14,7 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { BsGoogle } from "react-icons/bs";
 
-const LoginPage = () => {
+const RegisterPage = () => {
   const {
     register,
     handleSubmit,
@@ -29,7 +29,19 @@ const LoginPage = () => {
         render={(props) => <form {...props} data-custom="foo" />}
         onSubmit={handleSubmit(onSubmit)}
       >
-        <h1 className="text-center text-2xl font-bold">Login</h1>
+         <h1 className="text-center text-2xl font-bold">Register</h1>
+
+        <TextField isRequired className="w-full" name="fullName">
+          <Label>Name</Label>
+          <Input {...register("name")} placeholder="Enter your name" />
+          <FieldError />
+        </TextField>
+
+        <TextField isRequired name="image" type="text">
+          <Label>Image URL</Label>
+          <Input {...register("image")} placeholder="Image URL" />
+          <FieldError />
+        </TextField>
 
         <TextField
           isRequired
@@ -79,13 +91,13 @@ const LoginPage = () => {
       </Button>
 
       <p className="text-center">
-        {"Don't have an account? "}
-        <Link href={"/register"}>
-          <span className="text-red-500 cursor-pointer bl">register</span>
+        {"Already have an account? "}
+        <Link href={"/login"}>
+          <span className="text-blue-500 cursor-pointer bl">login</span>
         </Link>
       </p>
     </Card>
   );
 };
 
-export default LoginPage;
+export default RegisterPage;

@@ -1,4 +1,5 @@
 "use client";
+import { authClient } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import {
   Button,
@@ -11,17 +12,35 @@ import {
   TextField,
 } from "@heroui/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { BsGoogle } from "react-icons/bs";
 
+
 const RegisterPage = () => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    const { data: res, error } = await authClient.signUp.email({
+      name: data.name, // required
+      email: data.email, // required
+      password: data.password, // required
+      image: data.image,
+      callbackURL: "/",
+    });
+    if (error) {
+      alert(error.message);
+    }
+    if (res) {
+      alert("Register successful");
+      router.push("/")
+    }
+  };
   return (
     <Card className="max-w-125 mx-auto border py-10 mt-10">
       <Form
@@ -29,7 +48,7 @@ const RegisterPage = () => {
         render={(props) => <form {...props} data-custom="foo" />}
         onSubmit={handleSubmit(onSubmit)}
       >
-         <h1 className="text-center text-2xl font-bold">Register</h1>
+        <h1 className="text-center text-2xl font-bold">Register</h1>
 
         <TextField isRequired className="w-full" name="fullName">
           <Label>Name</Label>

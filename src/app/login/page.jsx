@@ -1,4 +1,5 @@
 "use client";
+import { authClient } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import {
   Button,
@@ -14,6 +15,7 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { BsGoogle } from "react-icons/bs";
 
+
 const LoginPage = () => {
   const {
     register,
@@ -21,7 +23,20 @@ const LoginPage = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+      const { data: res, error } = await authClient.signIn.email({
+        email: data.email, // required
+        password: data.password, 
+        callbackURL: "/",
+      });
+      if (error) {
+        alert(error.message);
+      }
+      if (res) {
+        alert("Login successful");
+        
+      }
+    };
   return (
     <Card className="max-w-125 mx-auto border py-10 mt-10">
       <Form

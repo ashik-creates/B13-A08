@@ -4,7 +4,6 @@ import { Check } from "@gravity-ui/icons";
 import {
   Button,
   Card,
-  Description,
   FieldError,
   Form,
   Input,
@@ -31,14 +30,14 @@ const RegisterPage = () => {
       email: data.email, // required
       password: data.password, // required
       image: data.image,
-      callbackURL: "/",
+      callbackURL: "/login",
     });
     if (error) {
       alert(error.message);
     }
     if (res) {
       alert("Register successful");
-      router.push("/")
+      router.push("/login")
     }
   };
   return (
@@ -97,7 +96,7 @@ const RegisterPage = () => {
         <div className="flex gap-2 mt-4">
           <Button type="submit" className="bg-[#1d8386] text-white">
             <Check />
-            Submit
+            Register
           </Button>
           <Button type="reset" variant="secondary" className="text-[#1d8386]">
             Reset

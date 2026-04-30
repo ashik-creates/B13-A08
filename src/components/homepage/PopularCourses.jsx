@@ -45,12 +45,12 @@ const PopularCourses = () => {
     },
   ];
   return (
-    <div className="mt-7 bg-gray-100 py-2 container mx-auto rounded-2xl">
+    <div className="mt-7  container mx-auto ">
       <div className="flex justify-center items-center gap-2">
         <FaFireAlt className="w-8 h-8 text-red-500"></FaFireAlt>
         <h2 className="text-center text-3xl font-bold">Popular Courses</h2>
       </div>
-      <div className="grid grid-cols-3 container mx-auto gap-5 mt-5  rounded-2xl p-4">
+      <div className="grid grid-cols-3 container mx-auto gap-5 mt-5  rounded-2xl py-4">
         {courses.map((course) => (
           <Card
             key={course.id}

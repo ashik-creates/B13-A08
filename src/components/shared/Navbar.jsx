@@ -5,8 +5,8 @@ import { Button } from "@heroui/react";
 
 const Navbar = () => {
   return (
-    <div className="shadow-sm">
-      <div className="flex justify-between items-center py-5 container mx-auto">
+    <div className="shadow-sm bg-white">
+      <div className="flex justify-between items-center py-5 container mx-auto bg-white">
         <h1 className="text-2xl font-bold text-gray-600">
           Skill<span className="font-bold text-[#1d8386]">Sphere</span>
         </h1>

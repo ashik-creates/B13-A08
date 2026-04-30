@@ -12,11 +12,16 @@ import {
   TextField,
 } from "@heroui/react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { BsGoogle } from "react-icons/bs";
 
 
 const LoginPage = () => {
+  const searchParams = useSearchParams()
+
+  const callbackUrl = searchParams.get("callbackUrl") || "/";
+
   const {
     register,
     handleSubmit,
@@ -27,7 +32,7 @@ const LoginPage = () => {
       const { data: res, error } = await authClient.signIn.email({
         email: data.email, // required
         password: data.password, 
-        callbackURL: "/",
+        callbackURL: callbackUrl,
       });
       if (error) {
         alert(error.message);
@@ -81,7 +86,7 @@ const LoginPage = () => {
         <div className="flex gap-2 mt-4">
           <Button type="submit" className="bg-[#1d8386] text-white">
             <Check />
-            Submit
+            Login
           </Button>
           <Button type="reset" variant="secondary" className="text-[#1d8386]">
             Reset

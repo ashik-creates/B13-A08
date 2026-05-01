@@ -48,7 +48,7 @@ const TopInstructors = () => {
         {instructors.map((ins) => (
           <Card
             key={ins.id}
-            className="p-5 space-y-4 shadow-md border h-full border-gray-200 text-center"
+            className="p-5 space-y-4 shadow-md border h-full border-gray-200 bg-linear-to-r from-blue-300 to-purple-300  text-center"
           >
             <Image
               src={ins.image}

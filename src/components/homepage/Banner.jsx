@@ -16,7 +16,7 @@ const Banner = () => {
             <div>
                 <h2 className="text-7xl font-bold text-center">
                     Upgrade Your <span className="text-[#f79744]">
-                        Skills</span>. <br /> Master the <span className="text-[#f79744]">Future</span>
+                        Skills</span> <br /> Master the <span className="text-[#f79744]">Future</span>
                 </h2>
                 <p className="text-center mt-3  text-white/80">
                     Learn directly from industry experts through hands-on projects and <br />

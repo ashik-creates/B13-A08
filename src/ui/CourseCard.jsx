@@ -1,5 +1,6 @@
 import { Button, Card, Chip } from "@heroui/react";
 import Image from "next/image";
+import Link from "next/link";
 import { BiStar } from "react-icons/bi";
 import { FaChalkboardTeacher } from "react-icons/fa";
 
@@ -35,7 +36,7 @@ const CourseCard = ({course}) => {
           </div>
         </div>
       </div>
-      <Button className="w-full bg-[#1d8386]">Course Details</Button>
+      <Link href={`/courses/${course.id}`}><Button className="w-full bg-[#1d8386]">Course Details</Button></Link>
     </Card>
   );
 };

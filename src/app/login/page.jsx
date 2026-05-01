@@ -2,6 +2,7 @@
 import { authClient } from "@/lib/auth-client";
 import { Check } from "@gravity-ui/icons";
 import {
+  Alert,
   Button,
   Card,
   Description,
@@ -13,14 +14,16 @@ import {
 } from "@heroui/react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { BsGoogle } from "react-icons/bs";
 
-
 const LoginPage = () => {
-  const searchParams = useSearchParams()
+  const searchParams = useSearchParams();
 
   const callbackUrl = searchParams.get("callbackUrl") || "/";
+
+  const [message, setMessage] = useState("");
 
   const {
     register,
@@ -29,21 +32,20 @@ const LoginPage = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-      const { data: res, error } = await authClient.signIn.email({
-        email: data.email, // required
-        password: data.password, 
-        callbackURL: callbackUrl,
-      });
-      if (error) {
-        alert(error.message);
-      }
-      if (res) {
-        alert("Login successful");
-        
-      }
-    };
+    const { data: res, error } = await authClient.signIn.email({
+      email: data.email, // required
+      password: data.password,
+      callbackURL: callbackUrl,
+    });
+    if (error) {
+      setMessage(error.message);
+    }
+    if (res) {
+      setMessage("Login successful");
+    }
+  };
   return (
-    <Card className="max-w-125 mx-auto border py-10 mt-10">
+    <Card className="max-w-125 mx-auto border py-10 my-10">
       <Form
         className="flex max-w-96 w-full flex-col gap-4 mx-auto"
         render={(props) => <form {...props} data-custom="foo" />}
@@ -83,6 +85,9 @@ const LoginPage = () => {
           <Input {...register("password")} placeholder="Enter your password" />
           <FieldError />
         </TextField>
+        {message && <Alert variant="solid" color="primary" title="Info">
+          {message}
+        </Alert>}
         <div className="flex gap-2 mt-4">
           <Button type="submit" className="bg-[#1d8386] text-white">
             <Check />

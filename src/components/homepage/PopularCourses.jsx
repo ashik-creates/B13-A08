@@ -1,49 +1,14 @@
+import { getAllData } from "@/lib/api";
 import { Button, Card, Chip } from "@heroui/react";
 import Image from "next/image";
 import { BiStar } from "react-icons/bi";
 import { FaChalkboardTeacher, FaFireAlt } from "react-icons/fa";
 
-const PopularCourses = () => {
-  const courses = [
-    {
-      id: 4,
-      title: "JavaScript Deep Dive",
-      instructor: "Emily Johnson",
-      duration: "18 hours",
-      rating: 4.9,
-      level: "Advanced",
-      description:
-        "Master JavaScript concepts including closures, prototypes, async programming, and performance.",
-      image: "https://images.pexels.com/photos/574071/pexels-photo-574071.jpeg",
-      category: "Development",
-    },
-    {
-      id: 1,
-      title: "Complete Web Development Bootcamp",
-      instructor: "John Doe",
-      duration: "20 hours",
-      rating: 4.8,
-      level: "Beginner",
-      description:
-        "Learn full-stack web development from scratch using modern tools and best practices.",
-      image:
-        "https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg",
-      category: "Development",
-    },
-    {
-      id: 6,
-      title: "Python for Data Analysis",
-      instructor: "Sophia Martinez",
-      duration: "16 hours",
-      rating: 4.8,
-      level: "Intermediate",
-      description:
-        "Analyze and visualize data using Python, Pandas, NumPy, and Matplotlib.",
-      image:
-        "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg",
-      category: "Data Science",
-    },
-  ];
+const PopularCourses = async () => {
+  const allCourses = await getAllData();
+  const courses = [...allCourses]
+    .sort((a, b) => b.rating - a.rating)
+    .slice(0, 3);
   return (
     <div className="mt-7  container mx-auto ">
       <div className="flex justify-center items-center gap-2">
@@ -76,9 +41,10 @@ const PopularCourses = () => {
                   </p>
                   <h3>{course.instructor}</h3>
                 </div>
-                <div className="flex items-center gap-2"><p>
-                    {course.rating}</p>
-                    <BiStar className="text-orange-700"></BiStar></div>
+                <div className="flex items-center gap-2">
+                  <p>{course.rating}</p>
+                  <BiStar className="text-orange-700"></BiStar>
+                </div>
               </div>
             </div>
             <Button className="w-full bg-[#1d8386]">Course Details</Button>

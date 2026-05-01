@@ -8,7 +8,8 @@ const PopularCourses = async () => {
     .sort((a, b) => b.rating - a.rating)
     .slice(0, 3);
   return (
-    <div className="mt-7  container mx-auto ">
+    <div className="shadow-sm border-t border-b border-gray-200 mt-10 py-10 bg-white">
+      <div className="mt-4  container mx-auto ">
       <div className="flex justify-center items-center gap-2">
         <FaFireAlt className="w-8 h-8 text-red-500"></FaFireAlt>
         <h2 className="text-center text-3xl font-bold">Popular Courses</h2>
@@ -18,6 +19,7 @@ const PopularCourses = async () => {
           <CourseCard key={course.id} course={course}></CourseCard>
         ))}
       </div>
+    </div>
     </div>
   );
 };

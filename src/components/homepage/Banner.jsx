@@ -4,7 +4,7 @@ import { Button } from "@heroui/react";
 
 const Banner = () => {
     return (
-        <div className="relative  flex justify-center gap-3 items-center container mx-auto text-white h-[80vh] rounded-2xl">
+        <div className="relative  flex justify-center gap-3 items-center container mx-auto text-white h-[80vh] rounded-2xl bg-black/50">
             <Image
         src={banner}
         alt="SkillSphere Banner"
@@ -12,7 +12,6 @@ const Banner = () => {
         priority
         className=" object-fill  -z-10 rounded-2xl"
       />
-      <div className="absolute inset-0 bg-black/50 -z-10 rounded-2xl" />
             <div>
                 <h2 className="text-7xl font-bold text-center">
                     Upgrade Your <span className="text-[#f79744]">

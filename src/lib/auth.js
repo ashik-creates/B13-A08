@@ -6,6 +6,8 @@ const client = new MongoClient(process.env.DB_URI);
 const db = client.db("skill_sphere");
 
 export const auth = betterAuth({
+  secret: process.env.BETTER_AUTH_SECRET, 
+  baseURL: process.env.BETTER_AUTH_URL,
   database: mongodbAdapter(db, {
     // Optional: if you don't provide a client, database transactions won't be enabled.
     client,

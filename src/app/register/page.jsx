@@ -123,7 +123,7 @@ const RegisterPage = () => {
       <p className="text-center">
         {"Already have an account? "}
         <Link href={"/login"}>
-          <span className="text-blue-500 cursor-pointer bl">login</span>
+          <span className="text-blue-500 cursor-pointer bl">Login</span>
         </Link>
       </p>
     </Card>

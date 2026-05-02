@@ -8,8 +8,8 @@ export async function proxy(request) {
   });
 
   if (!session) {
-    const loginUrl = new URL('/login', request.url);
-    loginUrl.searchParams.set('redirect', request.nextUrl.pathname);
+    const loginUrl = new URL("/login", request.url);
+    loginUrl.searchParams.set("redirect", request.nextUrl.pathname);
     return NextResponse.redirect(loginUrl);
   }
 
@@ -17,5 +17,5 @@ export async function proxy(request) {
 }
 
 export const config = {
-  matcher: ["/my-profile", "/courses/:path"],
+  matcher: ["/courses/:path"],
 };

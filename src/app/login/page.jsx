@@ -3,7 +3,7 @@ import { Suspense } from "react";
 
 const LoginPage = () => {
   return (
-    <Suspense>
+    <Suspense fallback={<p>loading...</p>}>
       <Login></Login>
     </Suspense>
   );

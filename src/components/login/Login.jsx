@@ -91,7 +91,12 @@ const Login = () => {
           <FieldError />
         </TextField>
         {message && (
-          <Alert className="bg-blue-100" variant="solid" color="primary" title="Info">
+          <Alert
+            className="bg-blue-100"
+            variant="solid"
+            color="primary"
+            title="Info"
+          >
             {message}
           </Alert>
         )}
@@ -105,7 +110,11 @@ const Login = () => {
           </Button>
         </div>
       </Form>
-      <Button onClick={handleGoogleSignIn} className="max-w-96 w-full mx-auto mt-5" variant="outline">
+      <Button
+        onClick={handleGoogleSignIn}
+        className="max-w-96 w-full mx-auto mt-5"
+        variant="outline"
+      >
         <BsGoogle className="text-blue-400" />
         Login with google
       </Button>
@@ -113,7 +122,7 @@ const Login = () => {
       <p className="text-center">
         {"Don't have an account? "}
         <Link href={"/register"}>
-          <span className="text-red-500 cursor-pointer bl">register</span>
+          <span className="text-red-500 cursor-pointer bl">Register</span>
         </Link>
       </p>
     </Card>

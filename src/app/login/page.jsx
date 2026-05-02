@@ -18,12 +18,11 @@ import { useState } from "react";
 import { BsGoogle } from "react-icons/bs";
 
 const LoginPage = () => {
-  const router = useRouter()
+  const router = useRouter();
 
   const [message, setMessage] = useState("");
   const searchParams = useSearchParams();
   const redirectTo = searchParams.get("redirect") || "/";
-
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -40,9 +39,16 @@ const LoginPage = () => {
     }
     if (res) {
       setMessage("Login successful");
-      router.push(redirectTo)
+      router.push(redirectTo);
     }
   };
+
+  const handleGoogleSignIn = async () => {
+    await authClient.signIn.social({
+      provider: "google",
+    });
+  };
+
   return (
     <Card className="max-w-125 mx-auto border py-10 my-10">
       <Form
@@ -84,9 +90,11 @@ const LoginPage = () => {
           <Input name="password" placeholder="Enter your password" />
           <FieldError />
         </TextField>
-        {message && <Alert variant="solid" color="primary" title="Info">
-          {message}
-        </Alert>}
+        {message && (
+          <Alert variant="solid" color="primary" title="Info">
+            {message}
+          </Alert>
+        )}
         <div className="flex gap-2 mt-4">
           <Button type="submit" className="bg-[#1d8386] text-white">
             <Check />
@@ -97,7 +105,7 @@ const LoginPage = () => {
           </Button>
         </div>
       </Form>
-      <Button className="max-w-96 w-full mx-auto mt-5" variant="outline">
+      <Button onClick={handleGoogleSignIn} className="max-w-96 w-full mx-auto mt-5" variant="outline">
         <BsGoogle className="text-blue-400" />
         Login with google
       </Button>

@@ -44,6 +44,11 @@ const RegisterPage = () => {
       router.push("/login")
     }
   };
+  const handleGoogleSignIn = async () => {
+    await authClient.signIn.social({
+        provider: 'google'
+    })
+  }
   return (
     <Card className="max-w-125 mx-auto border py-10 my-10">
       <Form
@@ -110,7 +115,7 @@ const RegisterPage = () => {
           </Button>
         </div>
       </Form>
-      <Button className="max-w-96 w-full mx-auto mt-5" variant="outline">
+      <Button onClick={handleGoogleSignIn} className="max-w-96 w-full mx-auto mt-5" variant="outline">
         <BsGoogle className="text-blue-400" />
         Login with google
       </Button>

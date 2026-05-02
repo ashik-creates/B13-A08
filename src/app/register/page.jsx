@@ -39,6 +39,7 @@ const RegisterPage = () => {
       setMessage(error.message)
     }
     if (res) {
+      await authClient.signOut()
       setMessage("Register successful")
       router.push("/login")
     }

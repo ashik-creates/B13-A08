@@ -13,35 +13,34 @@ import {
   TextField,
 } from "@heroui/react";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
 import { BsGoogle } from "react-icons/bs";
 
 const LoginPage = () => {
-  const searchParams = useSearchParams();
-
-  const callbackUrl = searchParams.get("callbackUrl") || "/";
+  const router = useRouter()
 
   const [message, setMessage] = useState("");
+  const searchParams = useSearchParams();
+  const redirectTo = searchParams.get("redirect") || "/";
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
     const { data: res, error } = await authClient.signIn.email({
-      email: data.email, // required
-      password: data.password,
-      callbackURL: callbackUrl,
+      email: email, // required
+      password: password,
     });
     if (error) {
       setMessage(error.message);
     }
     if (res) {
       setMessage("Login successful");
+      router.push(redirectTo)
     }
   };
   return (
@@ -49,7 +48,7 @@ const LoginPage = () => {
       <Form
         className="flex max-w-96 w-full flex-col gap-4 mx-auto"
         render={(props) => <form {...props} data-custom="foo" />}
-        onSubmit={handleSubmit(onSubmit)}
+        onSubmit={onSubmit}
       >
         <h1 className="text-center text-2xl font-bold">Login</h1>
 
@@ -65,7 +64,7 @@ const LoginPage = () => {
           }}
         >
           <Label>Email</Label>
-          <Input {...register("email")} placeholder="Enter your email" />
+          <Input name="email" placeholder="Enter your email" />
           <FieldError />
         </TextField>
         <TextField
@@ -82,7 +81,7 @@ const LoginPage = () => {
           }}
         >
           <Label>Password</Label>
-          <Input {...register("password")} placeholder="Enter your password" />
+          <Input name="password" placeholder="Enter your password" />
           <FieldError />
         </TextField>
         {message && <Alert variant="solid" color="primary" title="Info">

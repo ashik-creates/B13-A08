@@ -4,14 +4,18 @@ import Link from "next/link";
 
 import { Avatar, Button } from "@heroui/react";
 import { authClient } from "@/lib/auth-client";
+import { usePathname, useRouter } from "next/navigation";
 
 const Navbar = () => {
+  const pathName = usePathname()
+  const router = useRouter()
   const userData = authClient.useSession();
   const user = userData.data?.user;
 
-  const handleLogOut = async()=>{
+  const handleLogOut = async () => {
     await authClient.signOut();
-  }
+    router.push(pathName);
+  };
   return (
     <div className="shadow-sm bg-white">
       <div className="flex justify-between items-center py-5 container mx-auto bg-white">
@@ -26,7 +30,9 @@ const Navbar = () => {
             <NavLink href={"/courses"}>Courses</NavLink>
           </p>
           <p>
-            <NavLink href={"/my-profile"}>My Profile</NavLink>
+            <NavLink href={"/my-profile"}>
+              My Profile
+            </NavLink>
           </p>
         </div>
         {user ? (
@@ -35,7 +41,9 @@ const Navbar = () => {
               <Avatar.Image alt={user?.name} src={user?.image} />
               <Avatar.Fallback>{user?.name.charAt(0)}</Avatar.Fallback>
             </Avatar>
-            <Button onClick={handleLogOut} variant="danger" size="sm">LogOut</Button>
+            <Button onClick={handleLogOut} variant="danger" size="sm">
+              LogOut
+            </Button>
           </div>
         ) : (
           <Link href={"/login"}>

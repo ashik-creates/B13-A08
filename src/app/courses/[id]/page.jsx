@@ -4,8 +4,10 @@ import { FaSignal, FaClock, FaFolderOpen, FaStar } from "react-icons/fa";
 import Link from "next/link";
 import { getAllData } from "@/lib/api";
 
-const CourseHeroCard = async ({ params }) => {
+const CourseDetailsPage = async ({ params }) => {
   const { id } = await params;
+
+  
   const allCourse = await getAllData();
 
   const course = allCourse.find((c) => c.id == id);
@@ -51,9 +53,7 @@ const CourseHeroCard = async ({ params }) => {
             <div className="flex-1 space-y-4">
               <h1 className="text-4xl font-bold">{course.title}</h1>
 
-              <p className="text-gray-600 text-lg">
-                {course.description}
-              </p>
+              <p className="text-gray-600 text-lg">{course.description}</p>
 
               <div className="flex flex-wrap gap-8 text-sm text-gray-600">
                 <div className="flex items-center gap-2">
@@ -109,4 +109,4 @@ const CourseHeroCard = async ({ params }) => {
   );
 };
 
-export default CourseHeroCard;
+export default CourseDetailsPage;

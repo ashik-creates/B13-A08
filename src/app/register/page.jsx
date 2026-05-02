@@ -102,7 +102,7 @@ const RegisterPage = () => {
           <Input {...register("password")} placeholder="Enter your password" />
           <FieldError />
         </TextField>
-        {message && <Alert variant="solid" color="primary" title="Info">
+        {message && <Alert className="bg-blue-100" variant="solid" color="primary" title="Info">
                   {message}
                 </Alert>}
         <div className="flex gap-2 mt-4">

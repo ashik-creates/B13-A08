@@ -91,7 +91,7 @@ const LoginPage = () => {
           <FieldError />
         </TextField>
         {message && (
-          <Alert variant="solid" color="primary" title="Info">
+          <Alert className="bg-blue-100" variant="solid" color="primary" title="Info">
             {message}
           </Alert>
         )}

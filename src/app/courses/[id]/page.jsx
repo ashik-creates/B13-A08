@@ -1,8 +1,9 @@
 import Image from "next/image";
-import { Card, Button } from "@heroui/react";
+import { Card, Button, toast } from "@heroui/react";
 import { FaSignal, FaClock, FaFolderOpen, FaStar } from "react-icons/fa";
 import Link from "next/link";
 import { getAllData } from "@/lib/api";
+import Btn from "@/components/courseDetails/Btn";
 
 const CourseDetailsPage = async ({ params }) => {
   const { id } = await params;
@@ -87,7 +88,7 @@ const CourseDetailsPage = async ({ params }) => {
                   All Courses
                 </Button>
               </Link>
-              <Button variant="outline">Enroll Now</Button>
+              <Btn></Btn>
             </div>
           </div>
         </div>

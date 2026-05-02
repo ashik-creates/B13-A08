@@ -2,7 +2,7 @@
 import NavLink from "@/ui/NavLink";
 import Link from "next/link";
 
-import { Avatar, Button } from "@heroui/react";
+import { Avatar, Button, toast } from "@heroui/react";
 import { authClient } from "@/lib/auth-client";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -15,6 +15,8 @@ const Navbar = () => {
   const handleLogOut = async () => {
     await authClient.signOut();
     router.push(pathName);
+    toast.warning("Logged out")
+    
   };
   return (
     <div className="shadow-sm bg-white">

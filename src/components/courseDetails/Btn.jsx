@@ -1,9 +1,10 @@
 "use client"
-import { Button, toast } from '@heroui/react';
+import { Button} from '@heroui/react';
+import { toast } from 'react-toastify';
 
 const Btn = () => {
     return (
-        <Button onPress={()=> toast.success("Enrolled Successfully")} variant="outline">Enroll Now</Button>
+        <Button onClick={()=> toast.success("Enrolled Successfully")} variant="outline">Enroll Now</Button>
     );
 };
 

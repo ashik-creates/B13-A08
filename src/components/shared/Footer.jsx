@@ -5,8 +5,8 @@ const Footer = () => {
   return (
     <footer className="bg-[#0c575a] text-white">
       <div className="container mx-auto">
-        <div className="container mx-auto px-6 py-12 grid md:grid-cols-3 gap-10">
-          <div className="mx-auto space-y-2">
+        <div className="px-6 py-12 text-center md:text-start grid md:grid-cols-3 gap-10">
+          <div className="mx-auto  space-y-2">
             <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
             <p className="text-sm text-white/50">
               Email: support@skillsphere.com

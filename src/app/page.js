@@ -8,11 +8,11 @@ import TopInstructors from "@/components/homepage/TopInstructors";
 export default function Home() {
   return (
     <div>
-      <Banner></Banner>
+      {/* <Banner></Banner>
       <PopularCourses></PopularCourses>
       <LearningTips></LearningTips>
       <TopInstructors></TopInstructors>
-      <NewReleases></NewReleases>
+      <NewReleases></NewReleases> */}
     </div>
   );
 }

@@ -26,7 +26,7 @@ const CourseDetailsPage = async ({ params }) => {
     "Authentication & Deployment",
   ];
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto mb-8">
       <Card className=" mt-10 p-6 shadow-sm rounded-2xl">
         <div className="grid md:grid-cols-2 gap-6 items-center">
           <div className="relative aspect-video">

@@ -45,13 +45,13 @@ const UpdateProfilePage = () => {
         >
           <h1 className="text-center text-2xl font-bold">Update Profile</h1>
 
-          <TextField isRequired className="w-full" name="fullName">
+          <TextField  className="w-full" name="fullName">
             <Label>Name</Label>
             <Input {...register("name")} placeholder="Enter your name" />
             <FieldError />
           </TextField>
 
-          <TextField isRequired name="image" type="text">
+          <TextField  name="image" type="text">
             <Label>Image URL</Label>
             <Input {...register("image")} placeholder="Image URL" />
             <FieldError />
@@ -68,7 +68,7 @@ const UpdateProfilePage = () => {
           )}
 
           <div className="flex items-center flex-wrap gap-3 mt-5">
-            <Button type="submit">Update</Button>
+            <Button type="submit" className="bg-[#1d8386]">Update</Button>
             <Button type="reset" variant="secondary">
               Reset
             </Button>

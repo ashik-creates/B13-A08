@@ -26,7 +26,7 @@ const MyProfilePage = () => {
 
         <h2 className="text-xl font-bold">{user?.name}</h2>
         <p className="text-gray-500 max-[300px]:text-[11px]">{user?.email}</p>
-        <Link href={"/my-profile/update?callbackUrl=/my-profile"}><Button className="mt-5">Update Profile</Button></Link>
+        <Link href={"/my-profile/update?callbackUrl=/my-profile"}><Button className="mt-5 bg-[#1d8386]">Update Profile</Button></Link>
       </Card>
     </div>
   );

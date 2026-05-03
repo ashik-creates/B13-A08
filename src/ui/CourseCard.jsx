@@ -4,12 +4,12 @@ import Link from "next/link";
 import { BiStar } from "react-icons/bi";
 import { FaChalkboardTeacher } from "react-icons/fa";
 
-const CourseCard = ({course}) => {
+const CourseCard = ({ course, style }) => {
   return (
     <Card
       key={course.id}
-      className="rounded-2xl border
-             flex flex-col gap-10"
+      className={`rounded-2xl border
+             flex flex-col gap-10 ${style}`}
     >
       <div className="relative w-full aspect-video">
         <Image
@@ -36,7 +36,9 @@ const CourseCard = ({course}) => {
           </div>
         </div>
       </div>
-      <Link href={`/courses/${course.id}`}><Button className="w-full bg-[#1d8386]">Course Details</Button></Link>
+      <Link href={`/courses/${course.id}`}>
+        <Button className="w-full bg-[#1d8386]">Course Details</Button>
+      </Link>
     </Card>
   );
 };

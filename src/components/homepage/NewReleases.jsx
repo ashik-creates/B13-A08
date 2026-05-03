@@ -6,7 +6,7 @@ const NewReleases = async () => {
   const lastThree = courses.slice(-3);
 
   return (
-    <div className="max-w-7xl mx-auto my-10">
+    <div className="container px-4 sm:px-0 mx-auto my-10">
       <h2 className="text-2xl text-center  lg:text-3xl font-bold mb-8">
         New Releases
       </h2>

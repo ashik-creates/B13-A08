@@ -8,7 +8,7 @@ import { Suspense } from "react";
 
 export default function Home() {
   return (
-    <div className="px-4 sm:px-0">
+    <div>
       <Banner></Banner>
       <Suspense
         fallback={

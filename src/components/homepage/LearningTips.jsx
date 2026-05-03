@@ -88,7 +88,7 @@ const LearningTips = () => {
   ];
 
   return (
-    <div className="my-16 container mx-auto">
+    <div className="my-16 container mx-auto px-4 sm:px-0">
       <h2 className="text-3xl font-bold text-center mb-10">
         Learning Tips for Students
       </h2>

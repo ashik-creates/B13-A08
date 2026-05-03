@@ -39,7 +39,7 @@ const TopInstructors = () => {
     },
   ];
   return (
-    <div className="shadow-sm border-t border-b border-gray-200 mt-10 py-10 bg-white">
+    <div className="shadow-sm border-t px-4 sm:px-0 border-b border-gray-200 mt-10 py-10 bg-white">
       <div className="my-10 container mx-auto">
       <h2 className="text-3xl font-bold text-center mb-10">
          Top Instructors

@@ -9,7 +9,7 @@ const MyProfilePage = () => {
   const userData = authClient.useSession();
   const user = userData.data?.user;
 
-  if(!user) return <p>Not logged in</p>
+  if(!user) return <p className="flex justify-center items-center p-20 container mx-auto bg-white rounded-2xl text-2xl text-gray-500 my-5">Not logged in</p>
   return (
     <div>
       <Card className="max-w-96 mx-auto flex flex-col items-center border my-10">

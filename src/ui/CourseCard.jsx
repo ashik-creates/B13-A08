@@ -23,7 +23,7 @@ const CourseCard = ({course}) => {
       </div>
       <div className="flex-1">
         <h2 className="text-xl font-semibold mb-2">{course.title}</h2>
-        <div className="flex justify-between">
+        <div className="flex justify-between items-center flex-wrap gap-2">
           <div className="flex items-center gap-2">
             <p>
               <FaChalkboardTeacher className="text-blue-700"></FaChalkboardTeacher>

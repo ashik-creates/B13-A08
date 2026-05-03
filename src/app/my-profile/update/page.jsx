@@ -37,38 +37,45 @@ const UpdateProfilePage = () => {
   };
 
   return (
-    <Card className="max-w-125 mx-auto border py-10 my-10">
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="flex max-w-96 w-full flex-col gap-4 mx-auto"
-      >
-        <h1 className="text-center text-2xl font-bold">Update Profile</h1>
+    <div className="px-4 sm:px-0">
+      <Card className="max-w-125 mx-auto border py-10 my-10">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="flex max-w-96 w-full flex-col gap-4 mx-auto"
+        >
+          <h1 className="text-center text-2xl font-bold">Update Profile</h1>
 
-        <TextField isRequired className="w-full" name="fullName">
-          <Label>Name</Label>
-          <Input {...register("name")} placeholder="Enter your name" />
-          <FieldError />
-        </TextField>
+          <TextField isRequired className="w-full" name="fullName">
+            <Label>Name</Label>
+            <Input {...register("name")} placeholder="Enter your name" />
+            <FieldError />
+          </TextField>
 
-        <TextField isRequired name="image" type="text">
-          <Label>Image URL</Label>
-          <Input {...register("image")} placeholder="Image URL" />
-          <FieldError />
-        </TextField>
-        {message && (
-          <Alert className="bg-blue-100" variant="solid" color="primary" title="Info">
-            {message}
-          </Alert>
-        )}
+          <TextField isRequired name="image" type="text">
+            <Label>Image URL</Label>
+            <Input {...register("image")} placeholder="Image URL" />
+            <FieldError />
+          </TextField>
+          {message && (
+            <Alert
+              className="bg-blue-100"
+              variant="solid"
+              color="primary"
+              title="Info"
+            >
+              {message}
+            </Alert>
+          )}
 
-        <div className="flex items-center gap-3 mt-5">
-          <Button type="submit">Update</Button>
-          <Button type="reset" variant="secondary">
-            Reset
-          </Button>
-        </div>
-      </form>
-    </Card>
+          <div className="flex items-center flex-wrap gap-3 mt-5">
+            <Button type="submit">Update</Button>
+            <Button type="reset" variant="secondary">
+              Reset
+            </Button>
+          </div>
+        </form>
+      </Card>
+    </div>
   );
 };
 

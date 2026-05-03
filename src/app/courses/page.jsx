@@ -11,14 +11,20 @@ const CoursesPage = async ({ searchParams }) => {
     : allCourses;
 
   return (
-    <div className="mb-10 container mx-auto">
+    <div className="mb-10 container mx-auto px-4 sm:px-0">
       <h1 className="text-3xl text-center pt-10 pb-5 font-bold">All Courses</h1>
       <SearchBar></SearchBar>
-        {filteredCourses.length === 0 ? <p className="container mx-auto py-20 px-2 shadow-sm text-center my-5 border border-gray-200 bg-white rounded-xl text-2xl font-semibold text-gray-500">No Course Available</p> : <div className="grid grid-cols-4 gap-5">
-        {filteredCourses.map((course) => (
-          <CourseCard key={course.id} course={course}></CourseCard>
-        ))}
-      </div>}
+      {filteredCourses.length === 0 ? (
+        <p className="container mx-auto py-20 px-2 shadow-sm text-center my-5 border border-gray-200 bg-white rounded-xl text-2xl font-semibold text-gray-500">
+          No Course Available
+        </p>
+      ) : (
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+          {filteredCourses.map((course) => (
+            <CourseCard key={course.id} course={course}></CourseCard>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

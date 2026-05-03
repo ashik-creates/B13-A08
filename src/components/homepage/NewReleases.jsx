@@ -6,12 +6,12 @@ const NewReleases = async () => {
   const lastThree = courses.slice(-3);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 my-10">
-      <h2 className="text-2xl text-center md:text-3xl font-bold mb-8">
+    <div className="max-w-7xl mx-auto my-10">
+      <h2 className="text-2xl text-center  lg:text-3xl font-bold mb-8">
         New Releases
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
         {lastThree.map((course) => (
           <NewReleaseCard key={course.id} course={course}></NewReleaseCard>
         ))}

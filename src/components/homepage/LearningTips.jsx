@@ -93,7 +93,7 @@ const LearningTips = () => {
         Learning Tips for Students
       </h2>
 
-      <div className="grid grid-cols-4 gap-5">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
         {learningTips.map((tip) => {
           const Icon = tip.icon;
           return (
@@ -107,7 +107,7 @@ const LearningTips = () => {
                 <p className=" text-gray-700">{tip.description}</p>
               </div>
               <Chip
-                className={`w-fit ${tip.category === "Study Techniques" ? "bg-blue-200" : "bg-red-200"}`}
+                className={`w-fit max-[300px]:text-xs text-center ${tip.category === "Study Techniques" ? "bg-blue-200" : "bg-red-200"}`}
               >
                 {tip.category}
               </Chip>

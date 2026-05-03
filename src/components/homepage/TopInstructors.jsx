@@ -45,7 +45,7 @@ const TopInstructors = () => {
          Top Instructors
       </h2>
 
-      <div className="grid grid-cols-4 gap-5">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
         {instructors.map((ins) => (
           <Card
             key={ins.id}
@@ -64,7 +64,7 @@ const TopInstructors = () => {
               <p className="text-sm text-gray-700">{ins.expertise}</p>
             </div>
 
-            <div className="text-sm flex justify-center gap-7">
+            <div className="text-sm flex justify-center flex-wrap gap-4 sm:gap-7">
               <div className="flex items-center gap-2">
                 <Star className="text-orange-500"></Star>
                 <p>{ins.rating}</p>

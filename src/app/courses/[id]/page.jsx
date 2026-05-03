@@ -26,23 +26,23 @@ const CourseDetailsPage = async ({ params }) => {
     "Authentication & Deployment",
   ];
   return (
-    <div className="container mx-auto mb-8">
+    <div className="container mx-auto mb-8 px-4 sm:px-0">
       <Card className=" mt-10 p-6 shadow-sm rounded-2xl">
-        <div className="grid md:grid-cols-2 gap-6 items-center">
-          <div className="relative aspect-video">
+        <div className="grid lg:grid-cols-2 gap-6 items-center">
+          <div className="relative aspect-square sm:aspect-video">
             <Image
               src={course.image}
               alt={course.title}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="rounded-xl object-fill w-full h-full"
+              className="rounded-xl object-cover w-full h-full"
             />
 
             <div className="absolute top-2 left-2 flex items-center gap-1 bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-lg">
               <FaStar /> {course.rating}
             </div>
 
-            <div className="absolute bottom-4 left-4 flex items-center gap-3 bg-black/60 text-white px-3 py-2 rounded-lg">
+            <div className="absolute bottom-4 left-4 hidden sm:flex items-center gap-3 bg-black/60 text-white px-3 py-2 rounded-lg">
               <div className="text-lg">
                 <p className="font-semibold">{course.instructor}</p>
                 <p className="text-xs opacity-80">Instructor</p>
@@ -52,7 +52,7 @@ const CourseDetailsPage = async ({ params }) => {
 
           <div className="flex flex-col gap-10">
             <div className="flex-1 space-y-4">
-              <h1 className="text-4xl font-bold">{course.title}</h1>
+              <h1 className="text-3xl sm:text-4xl font-bold">{course.title}</h1>
 
               <p className="text-gray-600 text-lg">{course.description}</p>
 
@@ -82,6 +82,13 @@ const CourseDetailsPage = async ({ params }) => {
                 </div>
               </div>
             </div>
+            <div className=" flex sm:hidden w-fit text-black items-center gap-3 bg-black/20  px-3 py-2 rounded-lg">
+              <div className="text-lg">
+                <p className="font-semibold">{course.instructor}</p>
+                <p className="text-xs opacity-80">Instructor</p>
+              </div>
+            </div>
+            
             <div className="flex flex-wrap gap-4">
               <Link href={"/courses"}>
                 <Button className="ml-auto bg-[#1d8386] text-white">

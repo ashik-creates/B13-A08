@@ -30,9 +30,9 @@ const NewReleaseCard = ({ course }) => {
             />
 
             <div className="p-4 space-y-2">
-              <h3 className="font-semibold line-clamp-2">{course.title}</h3>
+              <h3 className="font-semibold">{course.title}</h3>
 
-              <div className="flex items-center justify-between gap-2">
+              <div className="flex flex-wrap items-center justify-between gap-2">
                 <p className="text-sm text-gray-500">{course.instructor}</p>
 
                 <p className="font-bold flex items-center gap-2 text-[#1d8386]">

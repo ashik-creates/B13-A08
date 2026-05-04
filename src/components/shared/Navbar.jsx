@@ -62,17 +62,17 @@ const Navbar = () => {
       {open && (
         <div className="sm:hidden absolute top-full left-0 w-full bg-white shadow-md  z-50">
           <div className="flex flex-col p-5 gap-4 font-medium">
-            <Link href="/" onClick={() => setOpen(false)}>
-              Home
-            </Link>
+            <NavLink href="/" >
+              <p onClick={() => setOpen(false)}>Home</p>
+            </NavLink>
 
-            <Link href="/courses" onClick={() => setOpen(false)}>
-              Courses
-            </Link>
+            <NavLink href="/courses" onClick={() => setOpen(false)}>
+              <p onClick={() => setOpen(false)}>Courses</p>
+            </NavLink>
 
-            <Link href="/my-profile" onClick={() => setOpen(false)}>
-              My Profile
-            </Link>
+            <NavLink href="/my-profile" onClick={() => setOpen(false)}>
+              <p onClick={() => setOpen(false)}>My Profile</p>
+            </NavLink>
 
             <div className="pt-4">
               {user ? (
@@ -88,8 +88,8 @@ const Navbar = () => {
                   </Button>
                 </div>
               ) : (
-                <Link href="/login" onClick={() => setOpen(false)}>
-                  <Button className="bg-[#1d8386]  text-white w-fit">
+                <Link href="/login" >
+                  <Button onClick={() => setOpen(false)} className="bg-[#1d8386]  text-white w-fit">
                     Login
                   </Button>
                 </Link>

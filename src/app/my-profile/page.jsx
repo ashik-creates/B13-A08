@@ -10,7 +10,7 @@ const MyProfilePage = () => {
 
   if (!user)
     return (
-      <p className="flex justify-center items-center p-20 container mx-auto bg-white rounded-2xl text-2xl text-gray-500 my-5">
+      <p className="flex justify-center items-center p-20 container mx-auto bg-white rounded-2xl text-2xl text-center text-gray-500 my-5">
         Not logged in
       </p>
     );
@@ -19,7 +19,6 @@ const MyProfilePage = () => {
       <h1 className="text-xl font-bold text-center my-5">Profile</h1>
 
       <Card className="max-w-96 mx-auto flex flex-col items-center border my-10">
-        <h1 className="text-xl font-bold text-center my-5">Profile</h1>
         <Avatar className="h-20 w-20">
           <Avatar.Image
             alt="John Doe"

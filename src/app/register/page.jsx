@@ -16,9 +16,11 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { BsGoogle } from "react-icons/bs";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const RegisterPage = () => {
   const [message, setMessage] = useState("");
+  const [isShowPassword, setIsShowPassword] = useState(false);
   const router = useRouter();
   const {
     register,
@@ -86,6 +88,7 @@ const RegisterPage = () => {
             <FieldError />
           </TextField>
           <TextField
+            className="relative"
             isRequired
             minLength={8}
             name="password"
@@ -100,9 +103,16 @@ const RegisterPage = () => {
           >
             <Label>Password</Label>
             <Input
+              type={isShowPassword ? "text" : "password"}
               {...register("password")}
               placeholder="Enter your password"
             />
+            <span
+              className="absolute right-2 top-9 cursor-pointer"
+              onClick={() => setIsShowPassword(!isShowPassword)}
+            >
+              {isShowPassword ? <FaEye /> : <FaEyeSlash />}
+            </span>
             <FieldError />
           </TextField>
           {message && (

@@ -16,11 +16,13 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { BsGoogle } from "react-icons/bs";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const router = useRouter();
 
   const [message, setMessage] = useState("");
+  const [isShowPassword, setIsShowPassword] = useState(false);
   const searchParams = useSearchParams();
   const redirectTo = searchParams.get("redirect") || "/";
 
@@ -75,6 +77,7 @@ const Login = () => {
             <FieldError />
           </TextField>
           <TextField
+            className="relative"
             isRequired
             minLength={8}
             name="password"
@@ -88,7 +91,17 @@ const Login = () => {
             }}
           >
             <Label>Password</Label>
-            <Input name="password" placeholder="Enter your password" />
+            <Input
+              type={isShowPassword ? "text" : "password"}
+              name="password"
+              placeholder="Enter your password"
+            />
+            <span
+              className="absolute right-2 top-9 cursor-pointer"
+              onClick={() => setIsShowPassword(!isShowPassword)}
+            >
+              {isShowPassword ? <FaEye /> : <FaEyeSlash />}
+            </span>
             <FieldError />
           </TextField>
           {message && (

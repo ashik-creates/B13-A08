@@ -10,7 +10,7 @@ const MyProfilePage = () => {
 
   if (!user)
     return (
-      <p className="flex justify-center items-center p-20 container mx-auto bg-white rounded-2xl text-2xl text-center text-gray-500 my-5">
+      <p className="flex justify-center items-center p-20 container mx-auto bg-white rounded-2xl text-2xl text-center text-gray-500 mt-5">
         Not logged in
       </p>
     );

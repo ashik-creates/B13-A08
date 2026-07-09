@@ -41,6 +41,52 @@ scroll progress indicators.
 
 7. React Toastify: It provides toast messages for  logout action and in Enroll Now button in course details page, positioned at the top-center of the screen.
 
+## 🚀 Run the Project Locally
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/ashik-creates/skillsphere.git
+```
+
+### 2. Navigate to the Project Directory
+
+```bash
+cd skillsphere
+```
+
+### 3. Install Dependencies
+
+```bash
+npm install
+```
+
+### 4. Configure Environment Variables
+
+Create a `.env.local` file in the project root and add the required environment variables.
+
+```env
+MONGODB_URI=your_mongodb_connection_string
+BETTER_AUTH_SECRET=your_secret_key
+BETTER_AUTH_URL=http://localhost:3000
+```
+
+> Replace the placeholder values with your own credentials.
+
+### 5. Start the Development Server
+
+```bash
+npm run dev
+```
+
+### 6. Open the Application
+
+Visit the application in your browser:
+
+```
+http://localhost:3000
+```
+
 Live URL:
 
 https://b13-a08.vercel.app
